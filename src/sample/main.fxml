@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="303.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Main">
+   <children>
+      <Button fx:id="makerButton" layoutX="14.0" layoutY="233.0" mnemonicParsing="false" onAction="#openMaker" prefHeight="25.0" prefWidth="280.0" text="Создание заявки" />
+      <Button fx:id="guidanceButton" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#openGuidance" prefHeight="25.0" prefWidth="280.0" text="Войти в каталог" />
+      <Label layoutX="38.0" layoutY="7.0" text="Домашняя работа по дисциплине" />
+      <Label layoutX="61.0" layoutY="22.0" text="Технология разработки ПО" />
+      <Label layoutX="119.0" layoutY="55.0" text="Вариант 7" />
+      <Label layoutX="71.0" layoutY="90.0" text="АРМ сотрудника отдела" />
+      <Label layoutX="56.0" layoutY="105.0" text="приема и выдачи документов" />
+   </children>
+</AnchorPane>
