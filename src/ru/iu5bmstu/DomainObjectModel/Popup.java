@@ -1,4 +1,4 @@
-package ru.iu5bmstu;
+package ru.iu5bmstu.EmployeeUI;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

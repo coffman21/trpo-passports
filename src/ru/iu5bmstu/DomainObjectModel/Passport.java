@@ -1,4 +1,4 @@
-package ru.iu5bmstu;
+package ru.iu5bmstu.EmployeeUI;
 
 public class Passport {
     private String name;
