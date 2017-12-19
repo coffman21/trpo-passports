@@ -1,4 +1,4 @@
-package sample;
+package ru.iu5bmstu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

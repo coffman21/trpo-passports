@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.iu5bmstu.Guidance.GuidanceTransScript">
+   <children>
+      <Label layoutX="238.0" layoutY="7.0" text="Список паспортов" />
+      <TableView fx:id="tableView" layoutX="14.0" layoutY="28.0" prefHeight="325.0" prefWidth="572.0">
+         <columns>
+            <TableColumn id="idCol" fx:id="idCol" prefWidth="38.0" text="id" />
+            <TableColumn id="nameCol" fx:id="nameCol" prefWidth="219.0" text="ФИО" />
+            <TableColumn id="dobCol" fx:id="dobCol" prefWidth="107.0" text="Дата рождения" />
+            <TableColumn id="genderCol" fx:id="genderCol" prefWidth="38.0" text="Пол" />
+            <TableColumn id="cityCol" fx:id="cityCol" minWidth="0.0" prefWidth="129.0" text="Место рождения" />
+            <TableColumn id="statusCol" fx:id="statusCol" prefWidth="105.0" text="Статус" />
+         </columns>
+      </TableView>
+      <Button fx:id="delete" layoutX="500.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteRow" prefHeight="25.0" prefWidth="86.0" text="Удалить" />
+      <ChoiceBox fx:id="statusChecker" layoutX="183.0" layoutY="361.0" prefHeight="25.0" prefWidth="125.0" value="undone">
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="done" />
+                  <String fx:value="undone" />
+              </FXCollections>
+          </items>
+      </ChoiceBox>
+      <Label layoutX="14.0" layoutY="366.0" text="Информация о статусе:" />
+      <Button fx:id="search" layoutX="314.0" layoutY="361.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="86.0" text="Поиск" />
+      <Button fx:id="changeStatus" layoutX="407.0" layoutY="361.0" mnemonicParsing="false" onAction="#changeStatus" prefHeight="25.0" prefWidth="86.0" text="Изменить" />
+   </children>
+</AnchorPane>

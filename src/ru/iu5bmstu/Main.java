@@ -1,4 +1,4 @@
-package sample;
+package ru.iu5bmstu;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,13 +13,12 @@ import java.io.IOException;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("TRPO DZ");
         primaryStage.setScene(new Scene(root, 316, 303));
 
         primaryStage.show();
-
 
 
     }
@@ -32,28 +31,32 @@ public class Main extends Application {
     public void openMaker(ActionEvent actionEvent) {
         Parent root;
         try {
-            FXMLLoader loader = new FXMLLoader (getClass().getResource("Maker/maker.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Maker/maker.fxml"));
             root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Maker");
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
 
-        } catch (IOException e) {e.printStackTrace();}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     public void openGuidance(ActionEvent actionEvent) {
         Parent root;
         try {
-            FXMLLoader loader = new FXMLLoader (getClass().getResource("Guidance/guidance.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Guidance/guidance.fxml"));
             root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Guidance");
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
 
-        } catch (IOException e) {e.printStackTrace();}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

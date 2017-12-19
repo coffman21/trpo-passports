@@ -1,4 +1,4 @@
-package sample;
+package ru.iu5bmstu;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

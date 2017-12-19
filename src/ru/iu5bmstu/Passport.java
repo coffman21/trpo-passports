@@ -1,4 +1,4 @@
-package sample;
+package ru.iu5bmstu;
 
 public class Passport {
     private String name;
@@ -7,18 +7,23 @@ public class Passport {
     private String city;
     private int id;
 
-    public Passport(int id, String name, String dob, String gender, String city) {
+    private boolean status;
+
+    public Passport(int id, String name, String dob, String gender, String city, boolean status) {
         this.id = id;
         this.name = name;
-        this.dob = gender;
+        this.dob = dob;
         this.gender = gender;
         this.city = city;
+        this.status = status;
+
+
     }
 
 
 
-    public String[] getValues() {
-        return new String[]{name, dob, gender, city};
+    public Object[] getValues() {
+        return new Object[]{name, dob, gender, city, status};
     }
 
 
@@ -40,5 +45,17 @@ public class Passport {
 
     public String getCity() {
         return city;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public void invertStatus() {
+        this.status = !this.status;
     }
 }
