@@ -1,4 +1,4 @@
-package ru.iu5bmstu;
+package ru.iu5bmstu.EmployeeUI;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

@@ -1,4 +1,4 @@
-package ru.iu5bmstu.Guidance;
+package ru.iu5bmstu.EmployeeUI.Guidance;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,8 +8,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import ru.iu5bmstu.Passport;
-import ru.iu5bmstu.Popup;
+import ru.iu5bmstu.DomainObjectModel.Passport;
+import ru.iu5bmstu.DomainObjectModel.Popup;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.sql.SQLException;
@@ -45,7 +45,7 @@ public class GuidanceTransScript {
         statusCol.setCellValueFactory(new PropertyValueFactory<Passport,String>("status"));
 
         boolean currentStatus = statusChecker.getValue().equals("done");
-        ArrayList<Passport> passports = TableDataGateway.selectWhere(currentStatus);
+        ArrayList<Passport> passports = TableDataGateway.selectByStatus(currentStatus);
 
         data.clear();
         data.addAll(passports);

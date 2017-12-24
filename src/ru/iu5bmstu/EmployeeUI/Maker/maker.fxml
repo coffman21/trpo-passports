@@ -11,7 +11,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.collections.FXCollections?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="234.0" minWidth="600" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.iu5bmstu.Maker.MakerTransScript">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="234.0" minWidth="600" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.iu5bmstu.EmployeeUI.Maker.MakerTransScript">
    <children>
       <Label layoutX="190.0" layoutY="14.0" text="Оформление заявки на паспорт" />
       <Label layoutX="14.0" layoutY="49.0" text="Фамилия Имя Отчество" />

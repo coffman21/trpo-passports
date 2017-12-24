@@ -1,4 +1,4 @@
-package ru.iu5bmstu.EmployeeUI;
+package ru.iu5bmstu.DomainObjectModel;
 
 public class Passport {
     private String name;
@@ -8,7 +8,7 @@ public class Passport {
     private int id;
 
     private boolean status;
-
+    private boolean given;
     public Passport(int id, String name, String dob, String gender, String city, boolean status) {
         this.id = id;
         this.name = name;
@@ -16,6 +16,7 @@ public class Passport {
         this.gender = gender;
         this.city = city;
         this.status = status;
+        this.given = given;
 
 
     }
@@ -57,5 +58,9 @@ public class Passport {
 
     public void invertStatus() {
         this.status = !this.status;
+    }
+
+    public boolean isGiven() {
+        return given;
     }
 }

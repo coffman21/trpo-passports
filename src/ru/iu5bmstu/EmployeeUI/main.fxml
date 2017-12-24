@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="303.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.iu5bmstu.Main">
+<AnchorPane prefHeight="303.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.iu5bmstu.EmployeeUI.Main">
    <children>
       <Button fx:id="makerButton" layoutX="14.0" layoutY="233.0" mnemonicParsing="false" onAction="#openMaker" prefHeight="25.0" prefWidth="280.0" text="Создание заявки" />
       <Button fx:id="guidanceButton" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#openGuidance" prefHeight="25.0" prefWidth="280.0" text="Войти в каталог" />

@@ -1,4 +1,4 @@
-package ru.iu5bmstu.Maker;
+package ru.iu5bmstu.EmployeeUI.Maker;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,8 +9,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import ru.iu5bmstu.Passport;
-import ru.iu5bmstu.Popup;
+import ru.iu5bmstu.DomainObjectModel.Passport;
+import ru.iu5bmstu.DomainObjectModel.Popup;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.sql.SQLException;
@@ -83,16 +83,17 @@ public class MakerTransScript {
         ArrayList<Passport> passports = TableDataGateway.select("");
         if (passports.stream().anyMatch(x -> x.getName().equals(p.getName()))) {
             exceptPassportExist(p.getName());
-            Popup.show("Паспорт добавлен.");
         }
         else {
             TableDataGateway.alter(p.getName(), p.getDob(), p.getGender(), p.getCity());
+            Popup.show("Паспорт добавлен.");
         }
     }
 
 
     private void showData() throws SQLException {
         ArrayList<Passport> passports = TableDataGateway.select("");
+        data.clear();
         data.addAll(passports);
         tableView.setItems(data);
     }
