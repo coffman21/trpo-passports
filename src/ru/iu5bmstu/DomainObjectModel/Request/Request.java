@@ -1,4 +1,4 @@
-package ru.iu5bmstu.DomainObjectModel;
+package ru.iu5bmstu.DomainObjectModel.Request;
 
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
@@ -24,9 +24,23 @@ public class Request {
         this.departmentFk = 1;
     }
 
-    // dumb
     public Object[] getValues() {
         return new Object[]{id, passportFk, status, given};
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isStatus(){
+        return status;
+    }
+
+    public boolean isGiven() {
+        return given;
+    }
 }

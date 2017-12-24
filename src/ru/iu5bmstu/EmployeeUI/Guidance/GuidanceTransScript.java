@@ -8,7 +8,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import ru.iu5bmstu.DomainObjectModel.Passport;
+import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
 import ru.iu5bmstu.DomainObjectModel.Popup;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 

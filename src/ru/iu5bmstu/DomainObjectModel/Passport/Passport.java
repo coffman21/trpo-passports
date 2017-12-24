@@ -1,4 +1,4 @@
-package ru.iu5bmstu.DomainObjectModel;
+package ru.iu5bmstu.DomainObjectModel.Passport;
 
 public class Passport {
     private String name;

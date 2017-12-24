@@ -1,8 +1,8 @@
 package ru.iu5bmstu.TableDataGateway;
 
 import com.sun.javafx.logging.Logger;
-import ru.iu5bmstu.DomainObjectModel.Passport;
-import ru.iu5bmstu.DomainObjectModel.Request;
+import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
+import ru.iu5bmstu.DomainObjectModel.Request.Request;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class TableDataGateway {
     private static Logger logger = new Logger();

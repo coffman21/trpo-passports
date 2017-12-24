@@ -1,11 +1,10 @@
 package ru.iu5bmstu.VisitorUI;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import ru.iu5bmstu.DomainObjectModel.Name;
-import ru.iu5bmstu.DomainObjectModel.Passport;
+import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
 import ru.iu5bmstu.DomainObjectModel.Popup;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
