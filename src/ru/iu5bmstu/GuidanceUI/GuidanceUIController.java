@@ -187,7 +187,7 @@ public class GuidanceUIController {
             root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Statistics");
-            stage.setScene(new Scene(root, 10, 10));
+            stage.setScene(new Scene(root, 382, 187));
             stage.show();
 
         } catch (IOException e) {
