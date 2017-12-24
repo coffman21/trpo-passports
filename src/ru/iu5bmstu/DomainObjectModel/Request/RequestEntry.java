@@ -5,7 +5,6 @@ import javafx.beans.property.StringProperty;
 import ru.iu5bmstu.DomainObjectModel.TableEntry;
 
 public class RequestEntry implements TableEntry{
-    private Request request;
     private final StringProperty id = new SimpleStringProperty();
     private final StringProperty name = new SimpleStringProperty();
     private final StringProperty given = new SimpleStringProperty();
