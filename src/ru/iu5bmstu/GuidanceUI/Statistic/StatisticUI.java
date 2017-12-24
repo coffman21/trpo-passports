@@ -1,12 +1,11 @@
 package ru.iu5bmstu.GuidanceUI.Statistic;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import ru.iu5bmstu.DomainObjectModel.Request.Request;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
@@ -60,5 +59,7 @@ public class StatisticUI {
     }
 
     public void close(ActionEvent actionEvent) {
+        Stage stage = (Stage) okButton.getScene().getWindow();
+        stage.close();
     }
 }
