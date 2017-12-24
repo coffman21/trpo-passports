@@ -2,12 +2,15 @@ package ru.iu5bmstu.TableDataGateway;
 
 import com.sun.javafx.logging.Logger;
 import ru.iu5bmstu.DomainObjectModel.Passport;
+import ru.iu5bmstu.DomainObjectModel.Request;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class TableDataGateway {
     private static Logger logger = new Logger();
@@ -24,13 +27,43 @@ public class TableDataGateway {
     }
 
     // Запрос на получение данных
-    public static ArrayList<Passport> select(String param) throws SQLException {
+    public static ArrayList<Passport> selectPassports() throws SQLException {
 
 
         String nativeQ = "SELECT * FROM passports;";
         ResultSet rs = conn.createStatement().executeQuery(nativeQ);
         System.out.println("executed query: " + nativeQ);
-        return rsHelper(rs);
+        return rsHelperPassport(rs);
+    }
+
+    // Запрос с параметром
+    public static ArrayList<Passport> selectPassports(String type, String value) throws SQLException {
+        String nativeQ = "SELECT * FROM passports WHERE " + type + " LIKE \'%" + value + "%\';" ;
+        if (type.equals("id")) {
+            nativeQ = "SELECT * FROM passports WHERE " + type + " = \'" + value + "\';" ;
+        }
+
+        ResultSet rs = conn.createStatement().executeQuery(nativeQ);
+        System.out.println("executed query: " + nativeQ);
+        return rsHelperPassport(rs);
+    }
+
+    // Запрос с параметром
+    public static ArrayList<Request> selectRequests(
+            ArrayList<AbstractMap.SimpleEntry> params) throws SQLException {
+
+        StringBuilder nativeQ = new StringBuilder("SELECT * FROM requests WHERE null");
+
+        for (AbstractMap.SimpleEntry entry:params) {
+            String type = (String) entry.getKey();
+            String value = (String) entry.getValue();
+            nativeQ.append(" OR " + type + " = " + value);
+        };
+        nativeQ.append(";");
+
+        ResultSet rs = conn.createStatement().executeQuery(String.valueOf(nativeQ));
+        System.out.println("executed query: " + nativeQ);
+        return rsHelperRequest(rs);
     }
 
     // Запрос на вставку данных
@@ -73,7 +106,7 @@ public class TableDataGateway {
 
         System.out.println("executed query: " + nativeQ);
 
-        return rsHelper(rs);
+        return rsHelperPassport(rs);
     }
 
     // Выбрать пользователей по имени
@@ -82,7 +115,7 @@ public class TableDataGateway {
         ResultSet rs = conn.createStatement().executeQuery(nativeQ);
         System.out.println("executed query: " + nativeQ);
 
-        ArrayList rsh = rsHelper(rs);
+        ArrayList rsh = rsHelperPassport(rs);
 
         return rsh.size() == 0 ? null : (Passport) rsh.get(0);
     }
@@ -90,7 +123,7 @@ public class TableDataGateway {
 
 
 
-    private static ArrayList<Passport> rsHelper(ResultSet rs) throws SQLException {
+    private static ArrayList<Passport> rsHelperPassport(ResultSet rs) throws SQLException {
         ArrayList<Passport> arr = new ArrayList<>();
         while (rs.next()) {
             int id = rs.getInt("id");
@@ -106,6 +139,21 @@ public class TableDataGateway {
             Passport p = new Passport(
                     id, name, dob, gender, city, status );
             arr.add(p);
+        }
+        return arr;
+    }
+
+    private static ArrayList<Request> rsHelperRequest(ResultSet rs) throws SQLException {
+        ArrayList<Request> arr = new ArrayList<>();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            int passportFk = rs.getInt("passports_fk");
+            boolean given = rs.getBoolean("given");
+            boolean status = rs.getBoolean("status");
+
+            Request r = new Request(
+                    id, passportFk, given, status );
+            arr.add(r);
         }
         return arr;
     }

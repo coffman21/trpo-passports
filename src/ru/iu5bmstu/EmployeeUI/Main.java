@@ -17,10 +17,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("TRPO DZ");
         primaryStage.setScene(new Scene(root, 316, 303));
-
         primaryStage.show();
-
-
     }
 
     public static void main(String[] args) {

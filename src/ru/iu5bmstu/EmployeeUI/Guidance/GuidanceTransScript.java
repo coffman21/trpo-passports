@@ -59,7 +59,7 @@ public class GuidanceTransScript {
         if (tableView.getSelectionModel().getSelectedCells() != null) {
             ObservableList<Passport> selectedCells = tableView.getSelectionModel().getSelectedItems();
 
-            // suppose we can select only one element
+            // suppose we can selectPassports only one element
             Passport p = selectedCells.get(0);
             data.remove(p);
             p.invertStatus();
@@ -77,7 +77,7 @@ public class GuidanceTransScript {
         if (tableView.getSelectionModel().getSelectedCells() != null) {
             ObservableList<Passport> selectedCells = tableView.getSelectionModel().getSelectedItems();
 
-            // suppose we can select only one element
+            // suppose we can selectPassports only one element
             data.remove(selectedCells.get(0));
             TableDataGateway.deleteRow(selectedCells.get(0).getId());
 

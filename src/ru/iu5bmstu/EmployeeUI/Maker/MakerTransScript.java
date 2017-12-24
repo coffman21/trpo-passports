@@ -80,7 +80,7 @@ public class MakerTransScript {
 
 
     private void saveData(Passport p) throws SQLException {
-        ArrayList<Passport> passports = TableDataGateway.select("");
+        ArrayList<Passport> passports = TableDataGateway.selectPassports();
         if (passports.stream().anyMatch(x -> x.getName().equals(p.getName()))) {
             exceptPassportExist(p.getName());
         }
@@ -92,7 +92,7 @@ public class MakerTransScript {
 
 
     private void showData() throws SQLException {
-        ArrayList<Passport> passports = TableDataGateway.select("");
+        ArrayList<Passport> passports = TableDataGateway.selectPassports();
         data.clear();
         data.addAll(passports);
         tableView.setItems(data);
