@@ -1,5 +1,6 @@
 package ru.iu5bmstu.DomainObjectModel.Request;
 
+import ru.iu5bmstu.DomainObjectModel.Name;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.sql.SQLException;
@@ -10,6 +11,9 @@ public class Request {
     private boolean status;
     private boolean given;
     private int departmentFk;
+
+
+    private Name nameName;
 
     private String name;
 

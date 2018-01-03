@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
 import ru.iu5bmstu.DomainObjectModel.Popup;
+import ru.iu5bmstu.DomainObjectModel.Request.Request;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.sql.SQLException;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MakerTransScript {
+
+    private Request r;
     @FXML
     public TextField name;
     @FXML

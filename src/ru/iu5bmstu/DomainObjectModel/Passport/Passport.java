@@ -1,5 +1,8 @@
 package ru.iu5bmstu.DomainObjectModel.Passport;
 
+import ru.iu5bmstu.DomainObjectModel.Department;
+import ru.iu5bmstu.DomainObjectModel.Name;
+
 public class Passport {
     private String name;
     private String dob;
@@ -7,6 +10,8 @@ public class Passport {
     private String city;
     private int id;
 
+    private Name nameName;
+    private Department d;
     private boolean status;
     private boolean given;
     public Passport(int id, String name, String dob, String gender, String city, boolean status) {
