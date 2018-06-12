@@ -10,11 +10,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
-import ru.iu5bmstu.DomainObjectModel.Passport.PassportEntry;
-import ru.iu5bmstu.DomainObjectModel.Popup;
+import ru.iu5bmstu.DomainObjectModel.front.PassportEntry;
+import ru.iu5bmstu.DomainObjectModel.front.Popup;
 import ru.iu5bmstu.DomainObjectModel.Request.Request;
-import ru.iu5bmstu.DomainObjectModel.Request.RequestEntry;
-import ru.iu5bmstu.DomainObjectModel.TableEntry;
+import ru.iu5bmstu.DomainObjectModel.front.RequestEntry;
+import ru.iu5bmstu.DomainObjectModel.front.TableEntry;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.io.IOException;

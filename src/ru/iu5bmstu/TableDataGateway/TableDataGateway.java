@@ -136,7 +136,7 @@ public class TableDataGateway {
             boolean status = rs.getBoolean("status");
 
             Passport p = new Passport(
-                    id, name, dob, gender, city, status );
+                    id, name, dob, city, status );
             arr.add(p);
         }
         return arr;

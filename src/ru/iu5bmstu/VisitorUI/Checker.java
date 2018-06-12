@@ -3,9 +3,9 @@ package ru.iu5bmstu.VisitorUI;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import ru.iu5bmstu.DomainObjectModel.Name;
+import ru.iu5bmstu.DomainObjectModel.Person;
 import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
-import ru.iu5bmstu.DomainObjectModel.Popup;
+import ru.iu5bmstu.DomainObjectModel.front.Popup;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class Checker {
     public TextField middlename;
 
     public void isDone(ActionEvent actionEvent) throws SQLException {
-        Name username = new Name(
+        Person username = new Person(
                 surname.getText(),
                 name.getText(),
                 middlename.getText()
@@ -41,7 +41,7 @@ public class Checker {
 
     }
     public void getPassport(ActionEvent actionEvent) throws SQLException {
-        Name username = new Name(
+        Person username = new Person(
                 surname.getText(),
                 name.getText(),
                 middlename.getText()

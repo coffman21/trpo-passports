@@ -10,7 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
-import ru.iu5bmstu.DomainObjectModel.Popup;
+import ru.iu5bmstu.DomainObjectModel.front.Popup;
 import ru.iu5bmstu.DomainObjectModel.Request.Request;
 import ru.iu5bmstu.TableDataGateway.TableDataGateway;
 
