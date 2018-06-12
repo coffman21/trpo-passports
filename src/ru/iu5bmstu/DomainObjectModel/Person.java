@@ -1,15 +1,15 @@
 package ru.iu5bmstu.DomainObjectModel;
 
-public class Name {
+import java.util.Date;
+
+public class Person {
+//    private long id;
     private String surname;
     private String name;
     private String middlename;
+    private String gender;
+    private Date dob;
 
-    public Name(String n1, String n2, String n3) {
-        this.surname = n1;
-        this.name = n2;
-        this.middlename = n3;
-    }
 
     @Override
     public String toString() {

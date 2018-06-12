@@ -1,4 +1,4 @@
-package ru.iu5bmstu.DomainObjectModel;
+package ru.iu5bmstu.DomainObjectModel.front;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

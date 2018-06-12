@@ -1,8 +1,8 @@
-package ru.iu5bmstu.DomainObjectModel.Passport;
+package ru.iu5bmstu.DomainObjectModel.front;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import ru.iu5bmstu.DomainObjectModel.TableEntry;
+import ru.iu5bmstu.DomainObjectModel.Passport.Passport;
 
 public class PassportEntry implements TableEntry {
     private Passport passport;

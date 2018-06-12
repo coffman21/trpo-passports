@@ -1,71 +1,26 @@
 package ru.iu5bmstu.DomainObjectModel.Passport;
 
+import ru.iu5bmstu.DomainObjectModel.Address;
 import ru.iu5bmstu.DomainObjectModel.Department;
-import ru.iu5bmstu.DomainObjectModel.Name;
+import ru.iu5bmstu.DomainObjectModel.Person;
+import ru.iu5bmstu.DomainObjectModel.Request.Request;
+
+import java.util.List;
 
 public class Passport {
-    private String name;
-    private String dob;
-    private String gender;
-    private String city;
-    private int id;
+//    private long id;
 
-    private Name nameName;
-    private Department d;
-    private boolean status;
-    private boolean given;
-    public Passport(int id, String name, String dob, String gender, String city, boolean status) {
-        this.id = id;
-        this.name = name;
-        this.dob = dob;
-        this.gender = gender;
-        this.city = city;
-        this.status = status;
-        this.given = given;
+    private String seriesNumber;
+    private List<String> children;
+    private String relations;
+    private String photoLink;
 
+    private Person namePerson;
+    private Address address;
+
+    public Passport(){
 
     }
 
 
-
-    public Object[] getValues() {
-        return new Object[]{name, dob, gender, city, status};
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public void invertStatus() {
-        this.status = !this.status;
-    }
-
-    public boolean isGiven() {
-        return given;
-    }
 }

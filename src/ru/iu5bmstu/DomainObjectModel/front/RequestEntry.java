@@ -1,8 +1,8 @@
-package ru.iu5bmstu.DomainObjectModel.Request;
+package ru.iu5bmstu.DomainObjectModel.front;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import ru.iu5bmstu.DomainObjectModel.TableEntry;
+import ru.iu5bmstu.DomainObjectModel.Request.Request;
 
 public class RequestEntry implements TableEntry{
     private final StringProperty id = new SimpleStringProperty();
