@@ -1,0 +1,166 @@
+# 1
+
+@startuml
+actor Client as cl
+participant "<U+00ab>Boundary<U+00bb> GuidanceUI" as b
+participant "<U+00ab>Control<U+00bb> Guidance" as c
+participant "<U+00ab>Entity<U+00bb> Request" as e
+
+cl -> b : 1: Login
+activate b
+b -> b: 1.1: Render
+activate b
+b -> c : 1.2: Pass Credentials
+activate c
+c -> c: 1.2.1: Evaluate
+
+alt user exists
+c --> b: 1.3: User logged in
+b --> cl: 2: Logged in
+
+else login invalid
+c --> b: 1.3: Login invalid
+deactivate b
+deactivate c
+b --> cl: 2: Print "Invalid login"
+deactivate b
+destroy cl
+
+end
+
+cl -> b: 3: Register a request
+activate b
+b -> c: 3.1: Pass request data
+activate c
+c -> e: 3.1.1: new Request()
+activate e
+e --> c: 3.1.2: done
+deactivate e
+c --> b: 3.2: Request created
+deactivate c
+b --> cl: 4: Request created
+deactivate b
+@enduml
+
+# 2
+
+
+@startuml
+actor Operator as op
+participant "<U+00ab>Boundary<U+00bb> MakerUI" as b
+participant "<U+00ab>Control<U+00bb> Maker" as c
+participant "<U+00ab>Entity<U+00bb> Request" as er
+participant "<U+00ab>Entity<U+00bb> Passport" as ep
+
+
+op -> b : 1: Login
+activate b
+b -> b: 1.1: Render
+activate b
+b -> c : 1.2: Pass Credentials
+activate c
+c -> c: 1.2.1: Evaluate
+
+alt user exists
+activate c
+c -> er: 1.2.2.1: getRequest()
+activate er
+er --> c: 1.2.2.2: Got requests
+deactivate er
+deactivate c
+c --> b: 1.3: Return requests
+b --> op: 2: Render requests
+
+else login invalid
+c --> b: 1.3: Login invalid
+deactivate b
+deactivate c
+b --> op: 2: Print "Invalid login"
+deactivate b
+destroy op
+
+end alt
+
+loop n times
+
+alt do Print Passport
+
+op -> b: 3: Print passport
+activate b
+
+b -> c: 3.1: Print passport
+
+ref over c, er, ep
+  Print passsport
+end ref
+
+c --> b: Printer State
+b --> op: Printed
+deactivate b
+
+else do Edit Passport
+op -> b: 3: Edit Passport
+activate b
+b -> c: 3.1: Get passport data
+activate c
+c -> ep: 3.1.1: getPassport()
+activate ep
+ep --> c: 3.1.2: Passport
+deactivate ep
+c --> b: 3.2: Edit Passport
+deactivate c
+b --> op: 4: Password edited
+deactivate b
+end
+
+end
+@enduml
+
+#3 
+@startuml
+participant "<U+00ab>Control<U+00bb> Maker" as c
+participant "<U+00ab>Boundary<U+00bb> Printer" as bp
+
+participant "<U+00ab>Boundary<U+00bb> MakerUI" as bm
+actor Printer as pr
+actor Operator as op
+database Storage as s
+
+
+
+
+[-> c : 1: Print passport
+activate c
+c -> c: 1.1: Prepare passport data
+activate c
+c -> bp : 1.2: Send passport data
+activate bp
+bp --> pr: 1.2.1: Send to printer
+deactivate bp
+
+activate pr
+pr --> bm: 1.2.1.1: Send printer state
+activate bm
+
+bm --> op: 1.2.1.1.1: Printed!
+activate op
+op -> pr: 1.2.1.1.2: Get printed passport
+pr --> op: 1.2.1.1.3: Return passport
+deactivate pr
+op --> op: 1.2.1.1.4 Validate passport
+
+activate op
+op -> s: 1.2.1.1.5.1: Store passport
+activate s
+s --> op: 1.2.1.1.5.2: Passport stored
+deactivate s
+op --> bm: 1.2.1.1.5: Update passport status
+deactivate op
+bm --> c: 1.3: Update passport status
+deactivate bm
+c --> c: 1.4: Updating status
+deactivate c
+[<-- c: 2: Return state
+deactivate c
+@enduml
+

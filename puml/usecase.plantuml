@@ -1,0 +1,155 @@
+@startuml
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+
+Cl -down- (Make a request)
+Cl -right- (Passport has\nbeen made)
+(Passport has\nbeen made) -right- Op
+(Perform a request) -right- Op
+(Send to print) -up- Op
+(Send to print) -down- Pr
+@enduml
+
+
+# um v2
+@startuml
+skinparam packageStyle rectangle
+
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+
+
+
+(Make a request) as (mak)
+(Complain) as (com)
+(Give passport) as (giv)
+
+(Edit status) as (edi)
+(Passport has\nbeen made) as (pas)
+(Perform a request) as (per)
+
+(Get printed passport) as (get)
+(Send to print) as (sen)
+
+Cl -- (mak)
+Cl -- (com)
+
+Cl -- (giv)
+(giv) -- Op
+
+(edi) -- Op
+(pas) -- Op
+(per) -- Op
+
+(get) -- Op
+(get) -- Pr
+
+(sen) -- Op
+(sen) -- Pr
+@enduml
+
+# oh v3.1
+
+@startuml
+skinparam packageStyle rectangle
+
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+rectangle "Passport ARM" {
+(Make a request) as (mak)
+(Complain) as (com)
+(Give passport) as (giv)
+
+(Edit status) as (edi)
+(Perform a request) as (per)
+
+(Get printed passport) as (get)
+(Send to print) as (sen)
+
+(giv) -[hidden]- (sen)
+(edi) -[hidden]- (giv)
+(get) -[hidden]- (sen)
+(edi) -[hidden]- (per)
+
+}
+Cl -- (mak)
+Cl -- (com)
+
+Cl -- (giv)
+(giv) -- Op
+
+(edi) -- Op
+(per) -- Op
+
+(get) -- Op
+(get) -- Pr
+
+(sen) -- Op
+(sen) -- Pr
+@enduml
+
+# v4 for 2nd part
+
+@startuml
+skinparam packageStyle rectangle
+
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+rectangle "Passport ARM" {
+
+(Login) as (log)
+(Make a request) as (mak)
+(Complain) as (com)
+(Give passport) as (giv)
+
+(Edit status) as (edi)
+(Perform a request) as (per)
+(Fill user data) as (fil)
+(Store passport) as (sto)
+
+(Show requests) as (shr)
+
+(Get printed passport) as (get)
+(Show printer state) as (sps)
+(Send to print) as (sen)
+
+(log) -[hidden]- (com)
+
+(fil) -[hidden]- (edi)
+(edi) -[hidden]- (sto)
+(sto) -[hidden]- (shr)
+
+(sen) -[hidden]- (sps)
+
+
+(com) -[hidden]- (per)
+(sto) -[hidden]- (get)
+
+}
+Cl -- (mak)
+(mak) .> (log) : include
+(mak) .> (com) : extends
+
+Cl -- (giv)
+(giv) -- Op
+
+(shr) -- Op
+(per) -- Op
+
+(per) .> (fil) : extend
+(per) .> (edi) : extend
+(per) .> (sto) : extend
+
+(get) -- Op
+(get) -- Pr
+
+(sen) -- Op
+(sen) -- Pr
+
+(get) .> (sps) : include
+(sen) .> (sps) : include
+@enduml

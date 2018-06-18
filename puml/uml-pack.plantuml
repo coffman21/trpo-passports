@@ -1,0 +1,101 @@
+#serv
+
+@startuml
+package Maker {
+rectangle r1 [MakerUI 
+---]
+rectangle r2 [MakerController
+----]
+rectangle r211 [Passport
+----]
+rectangle rq2 [Department
+----]
+}
+
+package Guidance {
+rectangle r3 [GuidanceUI 
+---]
+rectangle r4 [GuidanceController
+----]
+rectangle r21 [Request
+----]
+rectangle r2ww1 [Person
+----]
+}
+
+package Printer {
+rectangle r5 [Printer 
+---]
+rectangle r6 [PrinterStatus
+----]
+}
+
+package ExternalPrinter {
+}
+
+Guidance ..> Maker
+Maker ..> Printer
+Printer ..> ExternalPrinter
+
+ExternalPrinter -[hidden]- Maker
+@enduml
+
+#deployment
+
+@startuml
+actor Operator as o
+actor Client as c
+
+node "Central department" as d
+node "Client terminal" as ct
+node "Operator terminal" as ot
+node Printer as p
+
+c --> ct
+d <-- ct
+o -- ot
+d <-- ot
+d -- p
+@enduml
+
+# subsystems
+
+@startuml
+skinparam rectangle {
+    BorderStyle dashed
+}
+
+rectangle "Application level" {
+package "Client terminal" as CT
+package "Operator environment" as OR
+package "Printer interface" as IP
+package "Department database" as DB
+}
+
+OR <.. CT
+OR ..> IP
+
+rectangle "Middle level" {
+package JDK
+package JVM
+package RDBMS
+package "Printer driver" as DR
+}
+
+DB ..> RDBMS
+IP ..> DR
+OR ..> JDK
+CT ..> JDK
+JDK ..> JVM
+
+rectangle "System software level" {
+package Printer as P
+package "TCP/IP" as TCP
+}
+
+DR ..> P
+RDBMS ..> TCP
+JVM ..> TCP
+
+RDBMS -[hidden]- IP
+@enduml

@@ -1,0 +1,84 @@
+@startuml
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+
+Cl -down- (Make a request)
+Cl -right- (Passport has\nbeen made)
+(Passport has\nbeen made) -right- Op
+(Perform a request) -right- Op
+(Send to print) -up- Op
+(Send to print) -down- Pr
+@enduml
+
+###################
+business precedents
+###################
+
+#1
+
+@startuml
+|Client|
+  start
+  :Login;
+|System|
+  :Evaluate login;
+:Register request;
+|Client| 
+:Get request status;
+stop
+@enduml
+
+#2
+
+@startuml
+|Operator|
+  start
+  :Login;
+|System|
+  :Evaluate login;
+  :Show requests;
+|Operator|
+    :Choose a request;
+    :Perform request;
+  :Logout;
+|System|
+  :End of session;
+  stop
+@enduml
+
+#3
+
+@startuml
+|System|
+  start
+  :Prepare passport data; 
+|Printer|
+  :Send to print;
+|Operator|
+  :Get printed passport;
+  :Store passport;
+|System|
+  :Change status;
+  stop
+@enduml
+
+#4 
+
+@startuml
+|Person|
+start
+:Check status;
+|System|
+  if (passport is ready?) then (no)
+  :Send status not_ready;
+|Person|
+  :Get status;
+  stop
+  else (yes) 
+|Operator|
+  :Give passport;
+|Person|
+  :Get passport;
+  stop
+@enduml

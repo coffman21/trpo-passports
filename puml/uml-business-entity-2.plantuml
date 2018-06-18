@@ -1,0 +1,123 @@
+@startuml
+:Operator: as Op
+:Client: as Cl
+:Printer: as Pr
+
+Cl -down- (Make a request)
+Cl -right- (Passport has\nbeen made)
+(Passport has\nbeen made) -right- Op
+(Perform a request) -right- Op
+(Send to print) -up- Op
+(Send to print) -down- Pr
+@enduml
+
+###################
+business precedents
+###################
+
+#1
+
+@startuml
+|Client|
+  start
+  :Login;
+|System|
+  :Evaluate login;
+  if (user exists?) then (no)
+|Client|
+    :Get client\npersonal data;
+|System|
+  else (yes)
+  endif
+:Register request;
+|Client| 
+:Get request status;
+stop
+@enduml
+
+#2
+
+@startuml
+|Operator|
+  start
+  :Login;
+|System|
+  :Evaluate login;
+  :Show requests;
+|Operator|
+  while (work done?) is (no)
+    :Choose a request;
+    fork
+      :Print passport;
+      note left
+        Encapsulated
+        activity
+      end note
+    fork again 
+      :Fill user data;
+    fork again
+      :Show\nrequest\nstate;
+|System|
+      :Return\nrequests\nstates;
+|Operator|
+    end fork
+  endwhile (yes)
+  :Logout;
+|System|
+  :End of session;
+  stop
+@enduml
+
+#3
+
+@startuml
+|System|
+  start
+  :Prepare passport data; 
+  note left 
+Operator has chosen 
+"Print passports" 
+when working
+  end note
+|Printer|
+  :Get passport data;
+  :Send to print;
+|Operator|
+  :Get printed passport;
+  :Validate passport;
+  if (all right?) then (yes)
+    :Save passport;
+|System|    
+    :Store passport;
+    :<<datastore>>\n       Storage]
+|Operator|
+  else (no)
+    :Raise exception;
+|System|
+  endif
+  :Change status;
+  stop
+@enduml
+
+#4 
+
+@startuml
+|Person|
+start
+:Check status;
+|System|
+  :Return status\nto person;
+  if (passport is ready?) then (no)
+  :Send status not_ready;
+|Person|
+  :Get status;
+  stop
+  else (yes) 
+|Operator|
+  :Get printed passport;
+  :Validate;
+  :Give passport;
+|Person|
+  :Get passport;
+  stop
+@enduml

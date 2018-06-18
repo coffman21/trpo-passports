@@ -1,0 +1,38 @@
+# Login
+
+@startsalt
+{
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
+}
+@endsalt
+
+# Show requests
+
+@startsalt
+{
+  Passports operation system | Current operator:
+  Working with requests        | Operatorov O.O.  | [Logout]
+{#
+  ID  | Person      | Status      | .       | .      | .
+  123 | Odinov O.O. | Ready       | .       | [Edit] | [Store]
+  124 | Dvaev D.D.  | Ready       | .       | [Edit] | [Store]
+  125 | Triev T.T.  | Not printed | [Print] | [Edit] | [Store]
+  } | .
+}
+@endsalt
+
+# 
+
+@startsalt
+{
+  Print current passport?
+  {[ Yes ] | [ No  ]}
+
+  "Printing.........50%"
+
+  Printing completed. 
+  Get passport to Storage.
+}
+@endsalt
